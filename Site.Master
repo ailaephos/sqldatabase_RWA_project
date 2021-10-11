@@ -1,0 +1,31 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="rwa_projekt_katlija_2407.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,700;1,700&family=Monofett&display=swap" rel="stylesheet">
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/customWebFormsCss.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <nav class="nav navbar my-nav">
+                <span class="navbar-brand">RWA PROJEKT</span>
+                <span class="navbar-brand">
+                <span style="font-family:'Economica', sans-serif; color: lightyellow; font-size: 15px;">You are signed in as </span><span id="username" runat="server" style="font-family: 'Economica', sans-serif; color: yellow; font-size: 15px; margin-left:0; text-decoration: underline;"></span>
+                </span>
+            </nav>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>      
+           
+        </div>
+    </form>
+</body>
+</html>

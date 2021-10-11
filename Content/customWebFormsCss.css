@@ -1,0 +1,253 @@
+﻿.my-nav {
+    background-color: #202020;
+    margin-bottom: 4vh;
+    font-family: 'Monofett', cursive;
+    color: #FFFFFF;
+    padding: 0px;
+}
+
+h1 {
+    width: 110px;
+    margin-top: -27px;
+    margin-left: 5px;
+    background: white;
+    font-size: 15px;
+    border: 5px solid white;
+    border-radius: 10px;
+}
+
+.my-textBox {
+    border: solid 1px #202020;
+    border-radius: 7px;
+    color: forestgreen;
+    text-align: center;
+}
+
+#groupShowCustomer {
+    margin-top: 2vh;
+}
+
+.my-nav span {
+    font-size: 40px;
+    margin-left: 2vw;
+}
+
+.load-customers {
+    background-color: #FFDF6C;
+    border: solid 1px #FFDF6C;
+    border-radius: 10px;
+    height: 15vh;
+    text-align: center;
+    padding-top: 3vh;
+    font-family: 'Economica', sans-serif;
+}
+
+.maxCustomers {
+    font-size: 20px;
+}
+
+.load-button {
+    background-color: #707070;
+    border: solid #707070 1px;
+}
+
+.editImg {
+    background-color: forestgreen;
+    border: solid forestgreen 3px;
+    height: 30px;
+    width: 30px;
+    border-radius: 7px;
+}
+
+.moreInfo {
+    background-color: cornflowerblue;
+    border: cornflowerblue solid 3px;
+    height: 30px;
+    width: 30px;
+    border-radius: 7px;
+}
+
+.receipts {
+    background-color: darkred;
+    border: darkred solid 3px;
+    height: 30px;
+    width: 30px;
+    border-radius: 7px;
+}
+
+    .load-button:hover, .editImg:hover, .moreInfo:hover, .receipts:hover, .addToBase:hover,.back:hover,.item-icon:hover,.category-icon:hover, .subcategory-icon:hover, .editBase:hover {
+        background-color: #3F3F3F;
+        border: solid #3F3F3F 1px;
+    }
+
+.badge {
+    color: black
+}
+
+.table-holder {
+    margin-top: 4vh;
+    margin-bottom: 3vh;
+    padding-top: 2vh;
+    background-color: #707070;
+    border: solid 1px #707070;
+    border-radius: 7px;
+}
+
+.my-table {
+    background-color: white;
+}
+
+.customer-row {
+    font-family: 'Economica', sans-serif;
+}
+
+.table-holder h1 {
+    width: 130px;
+    font-size: 25px;
+    color: black;
+}
+
+.filter-container {
+    background-color: #3F3F3F;
+    border: solid 1px #3F3F3F;
+    border-radius: 10px;
+    height: 15vh;
+    text-align: center;
+    padding-top: 3vh;
+    font-family: 'Economica', sans-serif;
+    margin-top: 4vh;
+}
+
+    .filter-container h1 {
+        width: 60px;
+    }
+
+.addToBase {
+    background-color: forestgreen;
+    border: solid forestgreen 1px;
+    height: 25px;
+    width: 25px;
+    border-radius: 7px;
+    margin-left: 0.75vw;
+}
+
+.lblcity {
+    color: white;
+    margin-right: 0.75vw;
+    margin-left: 0.75vw;
+}
+.status-container {
+    width: 750px;
+    height: 450px;
+    border: solid 3px #3F3F3F;
+    background-color: #707070;
+    border-radius: 7px;
+    text-align: center;
+}
+.addstateheader {
+    font-family: 'Economica', sans-serif;
+    color: forestgreen;
+    font-weight: 500;
+    margin-left: 230px;
+    display: inline-block;
+}
+.txtadd {
+    font-family: 'Economica', sans-serif;
+}
+
+.status {
+    background-color: white;
+    width: 300px;
+    height: 150px;
+    border-radius: 7px;
+    margin-left: 30%;
+    margin-top: 40px;
+    padding-top: 20px;
+
+}
+.lblstatus {
+    font-family: 'Economica', sans-serif;
+    color: forestgreen;
+}
+.backBtn {
+    margin-top: 10px;
+    margin-left: 10px;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+}
+.contbtnh {
+    margin-top: 10px;
+    margin-bottom: 50px;
+    border: 2px solid #3F3F3F;
+    background-color: #FFDF6C;
+    border-radius: 7px;
+    text-align: left;
+}
+
+.back {
+    background-color: darkred;
+    border: darkred solid 3px;
+    height: 50px;
+    width: 50px;
+    border-radius: 7px;
+}
+.backIcon {
+    background: url("../Images/back.png");
+    height: 50px;
+    width: 50px;
+    background-color: darkred;
+    border: darkred solid 3px;
+    border-radius: 7px;
+}
+.item-icon {
+    background: url("../Images/item.png");
+    height: 50px;
+    width: 50px;
+    background-color: sandybrown;
+    border: sandybrown solid 3px;
+    border-radius: 7px;
+}
+.category-icon {
+    background: url("../Images/category.png");
+    height: 50px;
+    width: 50px;
+    background-color: forestgreen;
+    border: forestgreen solid 3px;
+    border-radius: 7px;
+}
+.subcategory-icon {
+    background: url("../Images/subcategory.png");
+    height: 50px;
+    width: 50px;
+    background-color: teal;
+    border: teal solid 3px;
+    border-radius: 7px;
+}
+.editBase {
+    background-color: forestgreen;
+    border: solid forestgreen 3px;
+    height: 35px;
+    width: 55px;
+    border-radius: 7px;
+    text-decoration:none;
+    color: white;
+}
+.deleteBase {
+    background-color: darkred;
+    border: solid darkred 3px;
+    height: 35px;
+    width: 55px;
+    border-radius: 7px;
+    text-decoration: none;
+    color: white;
+}
+.addBase {   
+    background-color: darkred;
+    border: solid darkred 3px;
+    height: 150px;
+    width: 150px;
+    border-radius: 7px;
+    text-decoration: none;
+    color: white;
+}

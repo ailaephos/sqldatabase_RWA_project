@@ -1,0 +1,82 @@
+﻿
+@model rwa_projekt_katlija_2407.Models.ViewModels.MoreInfo
+@{
+    ViewBag.Title = "ShowMoreInfo";
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript">
+    $('.editBase').on('click', function (e) {
+        e.preventDefault();
+        const id = $('#num').val();
+        $.ajax({
+            url: '@Url.Action(controllerName: "Customer", actionName: "FetchCustomer")',
+            data: { id }
+        })
+            .done(function (customer) {
+                for (var prop in customer) {
+                    $(`#${prop}`).html(customer[prop]);
+                }
+                $('.editImg').hide();
+            })
+    });
+
+</script>
+}
+<div style="width: 80vw; height: 550px; background-color: #3F3F3F; border: solid 1px #3F3F3F; border-radius: 10px; text-align: center " class="container">
+    <h1 style="width: 150px; margin-top:-12px;">Customer details</h1>
+    <div class="contbtnh" style="text-align: center; background-color: #FFDF6C">
+        <h4 class="addstateheader" style="margin-left:0px;">@Html.Partial(partialViewName: "_Customer", model: Model.Customer) details</h4>
+    </div>
+    <div style="margin-bottom: 40px;">
+        @using (Html.BeginForm())
+        { 
+            <span>
+                @Html.TextBox("num", null, new { @type = "number" })
+            </span>
+            <span style="color: white;">of </span>
+        <span id="ChangeCustomer" style="color: white;">
+            @Html.DisplayFor(model => model.ChangeCustomer)
+        </span>
+        <span>
+        @Html.ActionLink("Go", null, null, new { @class = "editBase" })
+        </span>
+        }
+    </div>
+    <div style="border: 1px solid white; border-radius: 7px; background-color: white; width: 40vw; margin: auto; padding-bottom: 2vh;">
+        <table class="table table-borderless" style="width: 30vw; margin-left: auto; background-color:white; font-family: 'Economica' , sans-serif; text-align: left; font-size: 20px;">
+            <tr>
+                @Html.HiddenFor(model => model.Customer.IDKupac)
+                <td style="color:forestgreen">
+                    @Html.DisplayNameFor(model => model.Customer.Ime):
+                </td>
+                <td id="Ime">
+                    @Html.DisplayFor(model => model.Customer.Ime)
+                </td>
+            </tr>
+            <tr>
+                <td style="color:forestgreen"> @Html.DisplayNameFor(model => model.Customer.Prezime): </td>
+                <td id="Prezime"> @Html.DisplayFor(model => model.Customer.Prezime)</td>
+            </tr>
+            <tr>
+                <td style="color:forestgreen"> @Html.DisplayNameFor(model => model.Customer.Email): </td>
+                <td id="Email"><a id="mailto" href="#"> @Html.DisplayFor(model => model.Customer.Email)</a></td>
+            </tr>
+            <tr>
+                <td style="color:forestgreen"> @Html.DisplayNameFor(model => model.Customer.Telefon): </td>
+                <td id="Telefon"> @Html.DisplayFor(model => model.Customer.Telefon)</td>
+            </tr>
+            <tr>
+                <td style="color:forestgreen"> @Html.DisplayNameFor(model => model.Customer.Drzava): </td>
+                <td id="Drzava"> @Html.DisplayFor(model => model.Customer.Drzava)</td>
+            </tr>
+            <tr>
+                <td style="color:forestgreen"> @Html.DisplayNameFor(model => model.Customer.Grad): </td>
+                <td id="rad"> @Html.DisplayFor(model => model.Customer.Grad)</td>
+            </tr>
+        </table>
+      <a href="@Url.Action(controllerName: "Customer", actionName: "Edit", routeValues: new { id =Model.Customer.IDKupac })"><span class="editImg" style="text-decoration: none; color: white; font-size: 25px; ">Edit</span></a>
+    </div>
+</div>
+

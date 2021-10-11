@@ -1,0 +1,68 @@
+﻿@model rwa_projekt_katlija_2407.Models.ViewModels.DetailsReceiptVM
+
+@{
+    ViewBag.Title = "ShowDetails";
+}
+
+<div style="width: 80vw; height: 25vh; background-color: #707070; margin-bottom: 15px; border-radius: 7px;" class="container">
+    <h1 style="width: 320px; margin-top:-12px;">CRUD Items, Categories and Subcategories</h1>
+    <div style="text-align: center;">
+        <div style="display:inline-block; margin-left:4px; margin-right: 4px; ">
+            <a href="@Url.Action(controllerName: "Product", actionName: "ShowAllProducts")" style="text-decoration:none;">
+                <div class="item-icon"></div>
+                <span style="font-family: 'Economica', sans-serif; color: black;">Products</span>
+            </a>
+        </div>
+
+        <div style="display:inline-block; margin-left:18px; margin-right:18px;">
+            <a href="@Url.Action(controllerName: "Category", actionName: "ShowAllCategories")" style="text-decoration: none; ">
+                <div class="category-icon"></div>
+                <span style="font-family: 'Economica', sans-serif; color: black;">Categories</span>
+            </a>
+        </div>
+
+        <div style="display:inline-block; margin-left:4px; margin-right: 4px; ">
+            <a href="@Url.Action(controllerName: "Subcategory", actionName: "ShowAllSubcategories")" style="text-decoration:none;">
+                <div class="subcategory-icon" style="margin-left: 10px;"></div>
+                <span style="font-family: 'Economica', sans-serif; color: black;">Subcategories</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div style="width: 80vw; height: auto; background-color: #3F3F3F; border: solid 1px #3F3F3F; border-radius: 10px; text-align: center " class="container">
+    <h1 style="width: 150px; margin-top:-12px;">Receipt details</h1>
+    <div class="contbtnh" style="text-align: center; background-color: #FFDF6C">
+        <h4 class="addstateheader" style="margin-left:0px;"> Receipt @Html.Partial(partialViewName: "_Receipt", model: Model.Receipt) - details</h4>
+    </div>
+    <div style="border: 6px solid white; border-radius: 7px; background-color: white; width: auto; margin: auto; padding-bottom: 2vh; margin-bottom: 5px;">
+        <table class="table" style="margin-bottom: 5px;">
+            <thead style=" font-family: 'Economica', sans-serif; color: black; font-size: 25px;">
+                <tr>
+                    <td>Item</td>
+                    <td>Category</td>
+                    <td>Subcategory</td>
+                    <td>Quantity</td>
+                    <td>Price per piece</td>
+                    <td>Sum</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var d in Model.Items)
+                {
+                    <tr style="font-family: 'Economica',sans-serif;">
+                        <td>@d.Naziv</td>
+                        <td>@d.Kategorija</td>
+                        <td>@d.Potkategorija</td>
+                        <td>@d.Kolicina</td>
+                        <td>@d.CijenaPoKomadu</td>
+                        <td>@d.UkupnaCijena</td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div><span style=" font-family: 'Economica', sans-serif; color: black; font-size: 20px;">Creditcard: </span><span>@Model.CreditCard.Tip</span><span style=" font-family: 'Economica', sans-serif; color: black; font-size: 20px;"> No: </span><span>@Model.CreditCard.Broj</span></div>
+        <div><span style=" font-family: 'Economica', sans-serif; color: black; font-size: 20px;">Commercialist: </span><span>@Model.Komercijalist.Ime</span><span> @Model.Komercijalist.Prezime</span></div>
+    </div>
+</div>

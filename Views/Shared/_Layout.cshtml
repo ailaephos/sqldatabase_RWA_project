@@ -1,0 +1,50 @@
+﻿@{ 
+    string user;
+    if (Request.Cookies.Get("userData") != null) {
+        user = Request.Cookies.Get("userData").Values[0].ToString();
+    }
+    else {
+        user = "";
+        
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,700;1,700&family=Monofett&display=swap" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body style="padding:0; margin: 0; border:0;">
+    <nav class="nav navbar my-nav">
+        <span class="navbar-brand">RWA PROJEKT</span>
+        <span class="navbar-brand">
+            <span id="txtuser" style="font-family:'Economica', sans-serif; color: lightyellow; font-size: 15px;">You are signed in as </span><span  style="font-family: 'Economica', sans-serif; color: yellow; font-size: 15px; margin-left:0; text-decoration: underline;">@user</span>
+        </span>
+    </nav>
+           
+    <div>
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - RWA</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+<script>
+    $('document').ready(function () {
+        if (window.location.href.indexOf("LogIn") > -1) {
+            $('#txtuser').hide();
+        };
+    });
+</script>

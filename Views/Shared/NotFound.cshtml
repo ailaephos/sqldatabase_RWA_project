@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "NotFound";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Not found</title>
+</head>
+<body>
+
+    <div style="width: 80vw; height: 240px; background-color: #3F3F3F; border: solid 1px #3F3F3F; border-radius: 10px; text-align: center " class="container">
+        <div class="contbtnh" style="text-align: left; background-color: #FFDF6C; height: auto; margin-bottom: 10px;">
+            <div class="backBtn">
+                <a href="@Url.Action(controllerName: "Customer", actionName: "Back")">
+                    <div class="backIcon"></div>
+                </a>
+            </div>
+            <h4 class="addstateheader" style="margin-left:350px;">Error</h4>
+        </div>
+        <div style="border: 1px solid white; border-radius: 7px; background-color: white; width: 60vw; height: auto; margin: auto; padding-bottom: 2vh; font-size: 20px;">
+            <hgroup>
+                <h2>Item you are trying to access probably does not exist in database.</h2>
+            </hgroup>
+        </div>
+    </div>
+</body>
+</html>

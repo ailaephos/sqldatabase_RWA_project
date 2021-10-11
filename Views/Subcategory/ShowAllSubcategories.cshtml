@@ -1,0 +1,72 @@
+﻿@model IEnumerable<rwa_projekt_katlija_2407.Models.Subcategory>
+
+@{
+    ViewBag.Title = "ShowAllSubcategories";
+}
+
+<div style="width: 80vw; height: 70px; background-color: whitesmoke; border: solid 1px #3F3F3F; border-radius: 10px; text-align: left; margin-bottom: 15px;" class="container">
+    <h1 style="width: 290px; margin-top:-12px;">Add a new subcategory</h1>
+    <p style="margin-left: 10px;">
+        @Html.ActionLink("Create", "Create", null, new { @class = "addBase" })
+    </p>
+</div>
+<div style="width: 80vw; height: auto; background-color: #3F3F3F; border: solid 1px #3F3F3F; border-radius: 10px; text-align: center " class="container">
+    <h1 style="width: 275px; margin-top:-12px;">Subcategories in AdventureWorksOBP</h1>
+    <div class="contbtnh" style="text-align: center; background-color: #FFDF6C">
+        <h4 class="addstateheader" style="margin-left:0px;">Subcategory list</h4>
+    </div>
+    <div style="border: 6px solid white; border-radius: 7px; background-color: white; width: auto; margin: auto; padding-bottom: 2vh; margin-bottom: 5px;">
+        <table class="table" style="margin-bottom: 5px;">
+            <tr style=" font-family: 'Economica', sans-serif; color: black; font-size: 25px;">
+                <th>
+                    @Html.DisplayNameFor(model => model.Naziv)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kategorija)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr style=" font-family: 'Economica', sans-serif;">
+                    @Html.HiddenFor(modelItem => item.IDPotkategorija)
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Naziv)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kategorija)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.IDPotkategorija }, new { @class = "editBase" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.IDPotkategorija }, new { @class = "deleteBase", data_naziv = item.Naziv, data_id = item.IDPotkategorija })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+
+        $('.deleteBase').on('click', function (e) {
+            e.preventDefault();
+            const { naziv, id } = this.dataset;
+            if (confirm(`Are you sure you wanna delete subcategory ${naziv} from database?`)) {
+                $.ajax({
+                    url: ` @Url.Action("Delete")`,
+                    data: { id },
+                    statusCode: {
+                        200: function () {
+                            $('.table').find(`[data-id=${id}]`)
+                                .parents('tr')
+                                .hide(500);
+                        }
+                    }
+               })
+            }
+
+        })
+    </script>
+}

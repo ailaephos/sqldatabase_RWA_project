@@ -1,0 +1,50 @@
+﻿@model rwa_projekt_katlija_2407.Models.ViewModels.EditSubcategoryVM
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div style="width: 80vw; height: 300px; background-color: #3F3F3F; border: solid 1px #3F3F3F; border-radius: 10px; text-align: center " class="container">
+    <h1 style="width: 150px; margin-top:-12px;">Subcategory editing</h1>
+    <div class="contbtnh" style="text-align: left; background-color: #FFDF6C; height: auto; margin-bottom: 10px;">
+        <h4 class="addstateheader" style="margin-left:0px;">Edit subcategory @Html.DisplayFor(model => model.Subcategory.Naziv)</h4>
+    </div>
+    <div style="border: 1px solid white; border-radius: 7px; background-color: white; width: 60vw; height: auto; margin: auto; padding-bottom: 2vh; font-size: 20px;">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.Subcategory.IDPotkategorija)
+
+            <div class="container" style="margin-top: 20px;">
+                <span>
+                    @Html.LabelFor(model => model.Subcategory.KategorijaID, htmlAttributes: new { @class = "txtadd" })
+                </span>
+                <span>
+                    @Html.DropDownListFor(model => model.Subcategory.KategorijaID, Model.Categories)
+                </span>
+            </div>
+            <div class="container" style="margin-top: 20px;">
+                <span>
+                    @Html.LabelFor(model => model.Subcategory.Naziv, htmlAttributes: new { @class = "txtadd" })
+                </span>
+                <span>
+                    @Html.EditorFor(model => model.Subcategory.Naziv, new { htmlAttributes = new { @class = "my-textBox" } })
+                </span>
+            </div>
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="container">
+        <div>
+            <input type="submit" value="Update" class="editImg" style="width: 100px; height: 30px; color:white; margin-top:20px; font-size: 15px;" />
+        </div>
+    </div>
+
+        }
+</div>
+    </div>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
